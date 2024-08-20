@@ -1,0 +1,9 @@
+@font-face {
+  font-family: "pokemon";
+  src: url("./SourCrunchowVgo.ttf");
+  font-weight: normal;
+  font-style: normal;
+}
+.pokemon {
+  font-family: pokemon;
+}
