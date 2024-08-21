@@ -4,6 +4,9 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import Image from "next/image";
 import { typeIcons, typeBackgroundClasses } from "../../utils/constants";
+import "../../../../public/fonts/pokemon-font.css";
+import "../../../../public/fonts/new-amsterdam-font.css";
+import ProgressBar from "@ramonak/react-progress-bar";
 
 export default function PokemonPage() {
   const { pokemon } = useParams();
@@ -100,12 +103,12 @@ export default function PokemonPage() {
             setEvolutions(evolutionsData);
           })
           .catch((error) => {
-            console.error("Błąd podczas pobierania danych ewolucji:", error);
+            console.error("Error while fetching evolutions:", error);
             setEvolutions([]);
           });
       })
       .catch((error) => {
-        console.error("Błąd podczas pobierania łańcucha ewolucji:", error);
+        console.error("Error while downloading evolutions:", error);
         setEvolutions([]);
       });
   };
@@ -152,8 +155,8 @@ export default function PokemonPage() {
           </div>
         </div>
         <div className="flex-1 flex flex-col justify-center p-8 overflow-y-auto rounded-t-[6rem] bg-[#ffffff5b] sm:rounded-none">
-          <div className="flex flex-col min-h-0 gap-8">
-            <h1 className="text-3xl font-bold text-center sm:text-left">
+          <div className="flex flex-col min-h-0 gap-8 justify-center items-center">
+            <h1 className="text-wrap text-[10vw] sm:text-[2rem] md:text-[2.2rem] lg:text-[3.5rem] xl:text-[4.2rem] 2xl:text-[5vw] font-bold text-center sm:text-left pokemon">
               {name.toUpperCase()}
             </h1>
             <div className="flex flex-col">
@@ -169,45 +172,102 @@ export default function PokemonPage() {
                       key={type}
                       className={`flex items-center gap-2 ${getBackgroundClass(
                         type
-                      )} p-2 rounded-lg shadow-md`}
+                      )} p-2 rounded-lg shadow-md flex justify-center items-center`}
                     >
                       <img
                         src={iconSrc}
                         alt={`${type} icon`}
                         className="w-6 h-6"
                       />
-                      <span>{type}</span>
+                      <span className="miriam-libre-bold text-white font-extrabold">
+                        {type.toUpperCase()}
+                      </span>
                     </div>
                   );
                 })}
               </div>
             </div>
-            <div className="grid grid-cols-4 gap-4">
-              <p className="text-lg">
+            <div className="grid gap-4 new-amsterdam">
+              <p className="text-3xl">
                 HP: {hp}
-                <progress value={hp} max={255} />
+                <ProgressBar
+                  completed={hp}
+                  maxCompleted={200}
+                  customLabel=" "
+                  width="100%"
+                  height="10px"
+                  bgColor="black"
+                  baseBgColor="rgba(255, 255, 255, 0.5)"
+                  animateOnRender={true}
+                />
               </p>
-              <p className="text-lg">
+              <p className="text-3xl">
                 Attack: {attack}
-                <progress value={attack} max={120} />
+                <ProgressBar
+                  completed={attack}
+                  maxCompleted={120}
+                  customLabel=" "
+                  width="100%"
+                  height="10px"
+                  bgColor="black"
+                  baseBgColor="rgba(255, 255, 255, 0.5)"
+                  animateOnRender={true}
+                />
               </p>
-              <p className="text-lg">
+              <p className="text-3xl">
                 Special Attack: {specialAttack}
-                <progress value={specialAttack} max={155} />
+                <ProgressBar
+                  completed={specialAttack}
+                  maxCompleted={155}
+                  customLabel=" "
+                  width="100%"
+                  height="10px"
+                  bgColor="black"
+                  baseBgColor="rgba(255, 255, 255, 0.5)"
+                  animateOnRender={true}
+                />
               </p>
-              <p className="text-lg">
-                Defense: {defense} <progress value={defense} max={230} />
+              <p className="text-3xl">
+                Defense: {defense}
+                <ProgressBar
+                  completed={defense}
+                  maxCompleted={230}
+                  customLabel=" "
+                  width="100%"
+                  height="10px"
+                  bgColor="black"
+                  baseBgColor="rgba(255, 255, 255, 0.5)"
+                  animateOnRender={true}
+                />
               </p>
-              <p className="text-lg">
+              <p className="text-3xl">
                 Special Defense: {specialDefense}{" "}
-                <progress value={specialDefense} max={230} />
+                <ProgressBar
+                  completed={specialDefense}
+                  maxCompleted={230}
+                  customLabel=" "
+                  width="100%"
+                  height="10px"
+                  bgColor="black"
+                  baseBgColor="rgba(255, 255, 255, 0.5)"
+                  animateOnRender={true}
+                />
               </p>
-              <p className="text-lg">
+              <p className="text-3xl">
                 Speed: {speed}
-                <progress value={specialDefense} max={180} />
+                <ProgressBar
+                  completed={speed}
+                  maxCompleted={180}
+                  customLabel=" "
+                  width="100%"
+                  height="10px"
+                  bgColor="black"
+                  baseBgColor="rgba(255, 255, 255, 0.5)"
+                  animateOnRender={true}
+                />
               </p>
 
-              <p className="text-lg">Abilities: {abilities.join(", ")}</p>
+              <p className="text-3xl">Abilities: {abilities.join(", ")}</p>
             </div>
             <div>
               <p className="text-lg font-semibold">Evolutions:</p>
