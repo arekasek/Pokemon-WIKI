@@ -187,7 +187,7 @@ export default function PokemonPage() {
                 })}
               </div>
             </div>
-            <div className="grid gap-4 new-amsterdam">
+            <div className="grid gap-4 new-amsterdam w-full max-w-md">
               <p className="text-3xl">
                 HP: {hp}
                 <ProgressBar
@@ -254,7 +254,7 @@ export default function PokemonPage() {
                 />
               </p>
               <p className="text-3xl">
-                Speed: {speed}
+                Speed: {speed}{" "}
                 <ProgressBar
                   completed={speed}
                   maxCompleted={180}
@@ -266,31 +266,26 @@ export default function PokemonPage() {
                   animateOnRender={true}
                 />
               </p>
-
               <p className="text-3xl">Abilities: {abilities.join(", ")}</p>
             </div>
-            <div>
-              <p className="text-lg font-semibold">Evolutions:</p>
-              <div className="flex flex-wrap gap-4">
-                {evolutions.map((evolution) => (
-                  <div
-                    key={evolution.id}
-                    className="flex flex-col items-center"
-                  >
+          </div>
+          {evolutions.length > 0 && (
+            <div className="mt-4 flex-col flex items-center">
+              <h2 className="text-2xl font-bold">Evolutions:</h2>
+              <div className="flex justify-center gap-4 mt-2">
+                {evolutions.map((evolution, index) => (
+                  <div key={index} className="flex flex-col items-center">
                     <img
-                      src={
-                        evolution.sprites.other["official-artwork"]
-                          .front_default
-                      }
-                      alt={`${evolution.name} image`}
-                      className="w-24 h-24 mb-2"
+                      src={evolution.sprites.other.home.front_default}
+                      alt={evolution.name}
+                      className="w-24 h-24 object-contain"
                     />
-                    <p className="text-lg">{evolution.name.toUpperCase()}</p>
+                    <p className="text-lg">{evolution.name}</p>
                   </div>
                 ))}
               </div>
             </div>
-          </div>
+          )}
         </div>
       </div>
     </>
