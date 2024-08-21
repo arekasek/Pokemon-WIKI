@@ -187,7 +187,7 @@ export default function PokemonPage() {
                 })}
               </div>
             </div>
-            <div className="grid gap-4 new-amsterdam w-full max-w-md">
+            <div className="flex flex-col gap-2 sm:w-3/4 lg:w-1/2 w-full new-amsterdam text-[#1b1b1bcc]">
               <p className="text-3xl">
                 HP: {hp}
                 <ProgressBar
@@ -267,25 +267,27 @@ export default function PokemonPage() {
                 />
               </p>
               <p className="text-3xl">Abilities: {abilities.join(", ")}</p>
+              {evolutions.length > 0 && (
+                <div className="mt-4 flex-col flex items-center">
+                  <h2 className="text-4xl font-bold text-black">Evolutions:</h2>
+                  <div className="flex justify-center gap-4 mt-2">
+                    {evolutions.map((evolution, index) => (
+                      <div key={index} className="flex flex-col items-center ">
+                        <img
+                          src={evolution.sprites.other.showdown.front_default}
+                          alt={evolution.name}
+                          className="w-24 h-24 border-4 border-[#0000008c] object-contain bg-[#00000046] rounded-full"
+                        />
+                        <p className="text-xl text-[#000000a6]">
+                          {evolution.name}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
             </div>
           </div>
-          {evolutions.length > 0 && (
-            <div className="mt-4 flex-col flex items-center">
-              <h2 className="text-2xl font-bold">Evolutions:</h2>
-              <div className="flex justify-center gap-4 mt-2">
-                {evolutions.map((evolution, index) => (
-                  <div key={index} className="flex flex-col items-center">
-                    <img
-                      src={evolution.sprites.other.home.front_default}
-                      alt={evolution.name}
-                      className="w-24 h-24 object-contain"
-                    />
-                    <p className="text-lg">{evolution.name}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          )}
         </div>
       </div>
     </>
