@@ -25,7 +25,7 @@ This is a Pokémon information app built using **Next.js** that allows users to 
 1. Clone the repository:
 
    ```bash
-   [git clone https://github.com/yourusername/pokemon-app.git](https://github.com/arekasek/Pokemon-WIKI)
+   [git clone https://github.com/arekasek/Pokemon-WIKI]
 2. Navigate to the project directory:
    ```bash
    cd pokemon-app
