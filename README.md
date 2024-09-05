@@ -26,4 +26,32 @@ This is a Pokémon information app built using **Next.js** that allows users to 
 
    ```bash
    [git clone https://github.com/yourusername/pokemon-app.git](https://github.com/arekasek/Pokemon-WIKI)
-  ```
+2. Navigate to the project directory:
+   ```bash
+   cd pokemon-app
+3. Install dependencies:
+   ```bash
+   npm install
+4. Run the development server:
+   ```bash
+   npm run dev
+5. Open your browser and visit http://localhost:3000
+
+## API
+
+The app uses the PokéAPI to fetch Pokémon data. The following requests are made:
+
+- **Pokémon Data**: Fetch basic information such as stats, abilities, and moves.
+- **Species Data**: Fetch species information, including the evolution chain.
+- **Evolution Chain**: Fetch evolution chain data from the species to display Pokémon evolutions.
+
+## Future Improvements
+
+- **TypeScript Support**: Add type definitions for better maintainability.
+- **More Stats**: Add additional details such as Pokémon height, weight, and moveset.
+- **Responsive UI Enhancements**: Improve the layout on smaller screen sizes.
+- **Error Handling**: Improve error handling for edge cases like network issues or missing data.
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
