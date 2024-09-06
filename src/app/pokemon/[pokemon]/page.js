@@ -143,24 +143,24 @@ export default function PokemonPage() {
   return (
     <>
       <div
-        className={`flex flex-col sm:flex-row h-full w-full ${backgroundClass} overflow-hidden`}
+        className={`flex flex-col sm:flex-row ${backgroundClass} min-h-screen w-full`}
       >
         <div className="flex-1 flex items-center justify-center p-4">
           <div className="circle bg-[#ffffff1e] m-3 p-3 image-shadow max-w-full">
             <img
               src={data.sprites.other.home.front_default}
               alt={name}
-              className="object-contain max-w-full max-h-full"
+              className="object-contain w-full h-auto"
             />
           </div>
         </div>
-        <div className="flex-1 flex flex-col justify-center p-8 overflow-y-auto rounded-t-[6rem] bg-[#ffffff5b] sm:rounded-none max-w-screen">
-          <div className="flex flex-col min-h-0 gap-8 justify-center items-center">
-            <h1 className="text-wrap text-[10vw] sm:text-[2rem] md:text-[2.2rem] lg:text-[3.5rem] xl:text-[4.2rem] 2xl:text-[5vw] font-bold text-center sm:text-left pokemon">
+        <div className="flex-1 flex flex-col justify-center p-8 sm:p-12 overflow-y-auto rounded-t-[6rem] bg-[#ffffff5b] sm:rounded-none max-w-screen">
+          <div className="flex flex-col gap-6 sm:gap-8 justify-center items-center">
+            <h1 className="text-wrap text-[12vw] sm:text-[2rem] md:text-[2.2rem] lg:text-[3rem] xl:text-[3.8rem] 2xl:text-[4.5rem] font-bold text-center sm:text-left pokemon">
               {name.toUpperCase()}
             </h1>
             <div className="flex flex-col">
-              <div className="flex gap-2">
+              <div className="flex gap-2 flex-wrap">
                 {types.map((type) => {
                   const iconSrc = typeIcons[type];
                   if (!iconSrc) {
@@ -172,7 +172,7 @@ export default function PokemonPage() {
                       key={type}
                       className={`flex items-center gap-2 ${getBackgroundClass(
                         type
-                      )} p-2 rounded-lg shadow-md flex justify-center items-center`}
+                      )} p-2 rounded-lg shadow-md`}
                     >
                       <img
                         src={iconSrc}
@@ -187,8 +187,8 @@ export default function PokemonPage() {
                 })}
               </div>
             </div>
-            <div className="flex flex-col gap-2 sm:w-3/4 lg:w-1/2 w-full new-amsterdam text-[#1b1b1bcc]">
-              <p className="text-3xl">
+            <div className="flex flex-col gap-4 sm:w-3/4 lg:w-1/2 w-full new-amsterdam text-[#1b1b1bcc]">
+              <p className="text-4xl sm:text-3xl">
                 HP: {hp}
                 <ProgressBar
                   completed={hp}
@@ -201,7 +201,7 @@ export default function PokemonPage() {
                   animateOnRender={true}
                 />
               </p>
-              <p className="text-3xl">
+              <p className="text-4xl sm:text-3xl">
                 Attack: {attack}
                 <ProgressBar
                   completed={attack}
@@ -214,7 +214,7 @@ export default function PokemonPage() {
                   animateOnRender={true}
                 />
               </p>
-              <p className="text-3xl">
+              <p className="text-4xl sm:text-3xl">
                 Special Attack: {specialAttack}
                 <ProgressBar
                   completed={specialAttack}
@@ -227,7 +227,7 @@ export default function PokemonPage() {
                   animateOnRender={true}
                 />
               </p>
-              <p className="text-3xl">
+              <p className="text-4xl sm:text-3xl">
                 Defense: {defense}
                 <ProgressBar
                   completed={defense}
@@ -240,7 +240,7 @@ export default function PokemonPage() {
                   animateOnRender={true}
                 />
               </p>
-              <p className="text-3xl">
+              <p className="text-4xl sm:text-3xl">
                 Special Defense: {specialDefense}
                 <ProgressBar
                   completed={specialDefense}
@@ -253,7 +253,7 @@ export default function PokemonPage() {
                   animateOnRender={true}
                 />
               </p>
-              <p className="text-3xl">
+              <p className="text-4xl sm:text-3xl">
                 Speed: {speed}
                 <ProgressBar
                   completed={speed}
@@ -266,20 +266,23 @@ export default function PokemonPage() {
                   animateOnRender={true}
                 />
               </p>
-              <p className="text-3xl">Abilities: {abilities.join(", ")}</p>
-              {/* Evolution Chain Section */}
+              <p className="text-4xl sm:text-3xl">
+                Abilities: {abilities.join(", ")}
+              </p>
               {evolutions.length > 0 && (
                 <div className="mt-4 flex-col flex items-center">
-                  <h2 className="text-4xl font-bold text-black">Evolutions:</h2>
+                  <h2 className="text-2xl sm:text-3xl font-bold text-black">
+                    Evolutions:
+                  </h2>
                   <div className="flex justify-center gap-4 mt-2 flex-wrap">
                     {evolutions.map((evolution, index) => (
                       <div key={index} className="flex flex-col items-center">
                         <img
                           src={evolution.sprites.other.showdown.front_default}
                           alt={evolution.name}
-                          className="w-24 h-24 border-4 border-[#0000008c] object-contain bg-[#00000046] rounded-full"
+                          className="w-20 h-20 border-4 border-[#0000008c] object-contain bg-[#00000046] rounded-full"
                         />
-                        <p className="text-xl text-[#000000a6] capitalize">
+                        <p className="text-xl sm:text-2xl text-[#000000a6] capitalize new-amsterdam">
                           {evolution.name}
                         </p>
                       </div>

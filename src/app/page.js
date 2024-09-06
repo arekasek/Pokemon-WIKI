@@ -65,7 +65,7 @@ export default function HomePage() {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center w-full h-screen p-4 bg-gray-100">
+    <div className="flex flex-col items-center justify-center w-full h-full p-4 bg-gray-100">
       <Image
         src="/img/pokemon-logo.png"
         alt="Pokémon Logo"
