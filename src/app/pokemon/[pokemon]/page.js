@@ -7,7 +7,7 @@ import { typeIcons, typeBackgroundClasses } from "../../utils/constants";
 import "../../../../public/fonts/pokemon-font.css";
 import "../../../../public/fonts/new-amsterdam-font.css";
 import ProgressBar from "@ramonak/react-progress-bar";
-import gsap from "gsap";
+
 export default function PokemonPage() {
   const { pokemon } = useParams();
   const [data, setData] = useState(null);
@@ -124,10 +124,10 @@ export default function PokemonPage() {
 
   if (!data)
     return (
-      <div className="flex items-center justify-center min-h-screen w-screen bg-gray-100">
+      <div className="flex items-center justify-center min-h-screen w-screen bg-gray-100 overflow-hidden">
         <Image
           src="/img/pokeball-spining.gif"
-          alt="Ładowanie..."
+          alt="Loading..."
           width={300}
           height={300}
         />
@@ -143,10 +143,10 @@ export default function PokemonPage() {
   return (
     <>
       <div
-        className={`flex flex-col sm:flex-row min-h-screen w-screen ${backgroundClass}`}
+        className={`flex flex-col sm:flex-row min-h-screen w-screen ${backgroundClass} overflow-hidden`}
       >
         <div className="flex-1 flex items-center justify-center p-4">
-          <div className="circle bg-[#ffffff1e] m-3 p-3 image-shadow">
+          <div className="circle bg-[#ffffff1e] m-3 p-3 image-shadow max-w-full">
             <img
               src={data.sprites.other.home.front_default}
               alt={name}
@@ -154,7 +154,7 @@ export default function PokemonPage() {
             />
           </div>
         </div>
-        <div className="flex-1 flex flex-col justify-center p-8 overflow-y-auto rounded-t-[6rem] bg-[#ffffff5b] sm:rounded-none">
+        <div className="flex-1 flex flex-col justify-center p-8 overflow-y-auto rounded-t-[6rem] bg-[#ffffff5b] sm:rounded-none max-w-screen">
           <div className="flex flex-col min-h-0 gap-8 justify-center items-center">
             <h1 className="text-wrap text-[10vw] sm:text-[2rem] md:text-[2.2rem] lg:text-[3.5rem] xl:text-[4.2rem] 2xl:text-[5vw] font-bold text-center sm:text-left pokemon">
               {name.toUpperCase()}
@@ -241,7 +241,7 @@ export default function PokemonPage() {
                 />
               </p>
               <p className="text-3xl">
-                Special Defense: {specialDefense}{" "}
+                Special Defense: {specialDefense}
                 <ProgressBar
                   completed={specialDefense}
                   maxCompleted={230}
@@ -254,10 +254,10 @@ export default function PokemonPage() {
                 />
               </p>
               <p className="text-3xl">
-                Speed: {speed}{" "}
+                Speed: {speed}
                 <ProgressBar
                   completed={speed}
-                  maxCompleted={180}
+                  maxCompleted={230}
                   customLabel=" "
                   width="100%"
                   height="10px"
@@ -267,18 +267,19 @@ export default function PokemonPage() {
                 />
               </p>
               <p className="text-3xl">Abilities: {abilities.join(", ")}</p>
+              {/* Evolution Chain Section */}
               {evolutions.length > 0 && (
                 <div className="mt-4 flex-col flex items-center">
                   <h2 className="text-4xl font-bold text-black">Evolutions:</h2>
-                  <div className="flex justify-center gap-4 mt-2">
+                  <div className="flex justify-center gap-4 mt-2 flex-wrap">
                     {evolutions.map((evolution, index) => (
-                      <div key={index} className="flex flex-col items-center ">
+                      <div key={index} className="flex flex-col items-center">
                         <img
                           src={evolution.sprites.other.showdown.front_default}
                           alt={evolution.name}
                           className="w-24 h-24 border-4 border-[#0000008c] object-contain bg-[#00000046] rounded-full"
                         />
-                        <p className="text-xl text-[#000000a6]">
+                        <p className="text-xl text-[#000000a6] capitalize">
                           {evolution.name}
                         </p>
                       </div>
