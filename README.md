@@ -1,36 +1,57 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Pokémon Information App
 
-## Getting Started
+This is a Pokémon information app built using **Next.js** that allows users to search for their favorite Pokémon and view detailed information about them, including stats, abilities, evolutions, and more. The app fetches data from the [PokéAPI](https://pokeapi.co/).
 
-First, run the development server:
+## Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- **Pokémon Search**: Users can search for Pokémon by name, with autocomplete suggestions as they type.
+- **Detailed Pokémon Stats**: View stats like HP, attack, defense, special attack, special defense, speed, and abilities.
+- **Evolution Chain**: See the evolution chain of the Pokémon.
+- **Dynamic Backgrounds**: The background color of the Pokémon details page changes based on its primary type.
+- **Loading Screen**: A custom loading animation is displayed while fetching data from the API.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Tech Stack
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+- **Next.js**: For building the frontend and handling routing.
+- **React**: For creating components and managing state.
+- **Axios**: For fetching data from the PokéAPI.
+- **PokéAPI**: Public API for retrieving Pokémon data.
+- **Tailwind CSS**: For responsive and modern UI design.
+- **@ramonak/react-progress-bar**: For displaying stats with a progress bar.
+- **TypeScript** (optional): If you wish to extend with type safety.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Installation
 
-## Learn More
+1. Clone the repository:
 
-To learn more about Next.js, take a look at the following resources:
+   ```bash
+   [git clone https://github.com/arekasek/Pokemon-WIKI]
+2. Navigate to the project directory:
+   ```bash
+   cd pokemon-app
+3. Install dependencies:
+   ```bash
+   npm install
+4. Run the development server:
+   ```bash
+   npm run dev
+5. Open your browser and visit http://localhost:3000
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## API
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+The app uses the PokéAPI to fetch Pokémon data. The following requests are made:
 
-## Deploy on Vercel
+- **Pokémon Data**: Fetch basic information such as stats, abilities, and moves.
+- **Species Data**: Fetch species information, including the evolution chain.
+- **Evolution Chain**: Fetch evolution chain data from the species to display Pokémon evolutions.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Future Improvements
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- **TypeScript Support**: Add type definitions for better maintainability.
+- **More Stats**: Add additional details such as Pokémon height, weight, and moveset.
+- **Responsive UI Enhancements**: Improve the layout on smaller screen sizes.
+- **Error Handling**: Improve error handling for edge cases like network issues or missing data.
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
