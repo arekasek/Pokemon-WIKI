@@ -143,7 +143,7 @@ export default function PokemonPage() {
   return (
     <>
       <div
-        className={`flex flex-col sm:flex-row min-h-screen w-screen ${backgroundClass} overflow-hidden`}
+        className={`flex flex-col sm:flex-row h-full w-full ${backgroundClass} overflow-hidden`}
       >
         <div className="flex-1 flex items-center justify-center p-4">
           <div className="circle bg-[#ffffff1e] m-3 p-3 image-shadow max-w-full">
