@@ -9,7 +9,7 @@ export const fetchEvolutionChain = async (speciesUrl) => {
 
     return extractEvolutions(chain);
   } catch (error) {
-    console.error("Błąd podczas pobierania łańcucha ewolucji:", error);
+    console.error("Evolution chain fetch error:", error);
     return [];
   }
 };

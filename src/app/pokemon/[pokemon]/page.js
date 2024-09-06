@@ -7,7 +7,7 @@ import { typeIcons, typeBackgroundClasses } from "../../utils/constants";
 import "../../../../public/fonts/pokemon-font.css";
 import "../../../../public/fonts/new-amsterdam-font.css";
 import ProgressBar from "@ramonak/react-progress-bar";
-
+import gsap from "gsap";
 export default function PokemonPage() {
   const { pokemon } = useParams();
   const [data, setData] = useState(null);
@@ -77,7 +77,7 @@ export default function PokemonPage() {
         })
         .catch((error) => {
           console.error("Error fetching data:", error);
-          setError("Pokémon nie znaleziony");
+          setError("Pokemon not found");
           setData(null);
         });
     }
