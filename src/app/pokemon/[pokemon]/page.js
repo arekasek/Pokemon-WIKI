@@ -154,8 +154,8 @@ export default function PokemonPage() {
             />
           </div>
         </div>
-        <div className="flex-1 flex flex-col justify-center p-8 sm:p-12 overflow-y-auto rounded-t-[6rem] bg-[#ffffff5b] sm:rounded-none sm:max-h-screen">
-          <div className="flex flex-col gap-6 sm:gap-8 justify-center items-center">
+        <div className="flex-1 flex flex-col justify-start p-8 sm:p-12 overflow-y-auto rounded-t-[6rem] bg-[#ffffff5b] sm:rounded-none">
+          <div className="flex flex-col gap-6 sm:gap-8 justify-start items-center">
             <h1 className="text-wrap text-[12vw] sm:text-[2rem] md:text-[2.2rem] lg:text-[3rem] xl:text-[3.8rem] 2xl:text-[4.5rem] font-bold text-center sm:text-left pokemon">
               {name.toUpperCase()}
             </h1>
@@ -278,7 +278,7 @@ export default function PokemonPage() {
                     {evolutions.map((evolution, index) => (
                       <div key={index} className="flex flex-col items-center">
                         <img
-                          src={evolution.sprites.other.showdown.front_default}
+                          src={evolution.sprites.other.home.front_default}
                           alt={evolution.name}
                           className="w-20 h-20 border-4 border-[#0000008c] object-contain bg-[#00000046] rounded-full"
                         />
