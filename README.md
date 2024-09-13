@@ -2,6 +2,10 @@
 
 This is a Pokémon information app built using **Next.js** that allows users to search for their favorite Pokémon and view detailed information about them, including stats, abilities, evolutions, and more. The app fetches data from the [PokéAPI](https://pokeapi.co/).
 
+## Screenshots
+![image](https://github.com/user-attachments/assets/cf14d9e2-2529-4be7-a092-b680f053e812)
+![pikachu](https://github.com/user-attachments/assets/2f70bd54-7097-42ac-ad1e-b8cdb6fde352)
+
 ## Features
 
 - **Pokémon Search**: Users can search for Pokémon by name, with autocomplete suggestions as they type.
